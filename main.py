@@ -43,7 +43,10 @@ def calculate_liquidation(entry, quantity, initial_balance, is_usdt, position):
 
     return liquidation_price
 
-st.title("Crypto Futures Calculator")
+st.title("Hashir's Personal Calculator")
+st.text("")
+st.subheader("Enter Values")
+st.text("")
 
 col1, col2 = st.columns(2)
 with col1:
