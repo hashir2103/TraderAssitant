@@ -28,6 +28,9 @@ def calculate_liquidation(entry, quantity, initial_balance, is_usdt, position):
     else:
         output = (quantity * entry) / initial_balance
     
+    if output == 0:
+        return float('inf')  # Return infinity if output is zero to handle division by zero
+
     output2 = 100 / output
     
     if position == "Long":
