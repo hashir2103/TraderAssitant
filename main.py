@@ -23,13 +23,16 @@ def calculate_price_from_percentage(entry, percentage):
     return round(entry * (1 + percentage / 100), 3)
 
 def calculate_liquidation(entry, quantity, initial_balance, is_usdt, position):
+    if initial_balance == 0:
+        return float('inf')  # Return infinity if initial_balance is zero
+
     if is_usdt:
         output = quantity / initial_balance
     else:
         output = (quantity * entry) / initial_balance
     
     if output == 0:
-        return float('inf')  # Return infinity if output is zero to handle division by zero
+        return float('inf')  # Return infinity if output is zero
 
     output2 = 100 / output
     
